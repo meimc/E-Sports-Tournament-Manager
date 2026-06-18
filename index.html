@@ -9,30 +9,83 @@
 
     <title>Gestor de Torneo de VideoJuegos</title>
   </head>
-  <body>
-    <button id="btnNuevoJugador">Nuevo jugador</button>
+  <body class="bg-gray-800 flex flex-col min-h-screen text-white">
+    <div id="pantallaInicio" class="h-screen flex justify-center items-center">
+      <button
+        id="btnIniciar"
+        class="bg-green-700 px-6 py-3 text-2xl font-bold cursor-pointer border rounded-2xl border-green-500 shadow-lg shadow-green-200 ring-green-400"
+      >
+        Iniciar Torneo
+      </button>
+    </div>
 
-    <form id="registroJugador" style="display: none">
-      <input type="text" id="nombre" placeholder="Nombre" required />
-      <input type="text" id="nickname" placeholder="Nickname" required />
-      <input type="number" id="nivel" placeholder="Nivel" required />
-      <button type="submit">Registrar</button>
-    </form>
+    <div id="app" style="display: none">
+      <header
+        class="flex justify-between items-center bg-gray-900 text-white p-4"
+      >
+        <h2 class="text-xl font-bold">🎮 GameTourment</h2>
 
-    <div id="listaJugadores"></div>
+        <nav class="flex gap-6">
+          <a href="#" class="hover:text-blue-400">Equipos</a>
+          <a href="#">Jugadores</a>
+          <a href="#">Partidas</a>
+          <a href="#">Ranking</a>
+          <a href="#">Historial</a>
+        </nav>
+      </header>
 
-    <form id="formEquipo">
-      <input
-        type="text"
-        id="nombreEquipo"
-        placeholder="Nombre del equipo"
-        required
-      />
-      <input type="text" id="entrenador" placeholder="Entrenador" required />
-      <button type="submit">Crear equipo</button>
-    </form>
+      <main class="grow">
+        <form
+          id="registroJugador"
+          style="display: none"
+          class="m-6 p-6 bg-green-700 border rounded-2xl border-green-500 shadow-lg shadow-green-200 ring-green-400"
+        >
+          <input type="text" id="nombre" placeholder="Nombre" required />
+          <input type="text" id="nickname" placeholder="Nickname" required />
+          <input type="number" id="nivel" placeholder="Nivel" required />
+          <button type="submit">Registrar</button>
+        </form>
 
-    <div id="listaEquipos"></div>
+        <button
+          id="btnNuevoJugador"
+          class="m-6 p-6 font-bold bg-green-700 border rounded-2xl border-green-500 shadow-lg shadow-green-200 ring-green-400 hover:bg-green-500"
+        >
+          Nuevo jugador
+        </button>
+
+        <div id="listaJugadores" class="flex flex-wrap gap-4"></div>
+
+        <form id="formEquipo">
+          <input
+            type="text"
+            id="nombreEquipo"
+            placeholder="Nombre del equipo"
+            required
+          />
+          <input
+            type="text"
+            id="entrenador"
+            placeholder="Entrenador"
+            required
+          />
+          <button type="submit">Crear equipo</button>
+        </form>
+
+        <div id="listaEquipos" class="flex"></div>
+      </main>
+
+      <footer class="bg-gray-900 text-white py-4 mt-10">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <p class="text-sm text-center">© 2026 GameManager</p>
+
+          <div class="flex gap-6 text-sm">
+            <span>Proyecto JS</span>
+            <span>Torneo Manager</span>
+            <span>v1.0</span>
+          </div>
+        </div>
+      </footer>
+    </div>
 
     <script src="./src/jugadores.js"></script>
     <script src="./src/equipos.js"></script>

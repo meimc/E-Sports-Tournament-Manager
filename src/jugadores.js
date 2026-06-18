@@ -2,7 +2,7 @@ let jugadores = [];
 
 function crearJugador(nombre, nickname, nivel) {
   let nuevo = {
-    id: Date.now(),
+    id: generarIdUnico(),
     nombre: nombre,
     nickname: nickname,
     nivel: nivel,
@@ -14,5 +14,3 @@ function crearJugador(nombre, nickname, nivel) {
 
   jugadores.push(nuevo);
 }
-
-console.log(typeof nombre, nombre);

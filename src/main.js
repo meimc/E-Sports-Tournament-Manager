@@ -1,9 +1,28 @@
+document.getElementById("btnIniciar").addEventListener("click", function () {
+  document.getElementById("pantallaInicio").style.display = "none";
+
+  document.getElementById("app").style.display = "block";
+});
+
 let boton = document.getElementById("btnNuevoJugador");
 let form = document.getElementById("registroJugador");
 
 boton.addEventListener("click", function () {
   form.style.display = "block";
 });
+
+//Generador de IDs
+function generarIdUnico() {
+  let id;
+  do {
+    id = Math.floor(10000 + Math.random() * 90000);
+  } while (
+    jugadores.some((j) => j.id === id) ||
+    equipos.some((e) => e.id === id)
+  );
+
+  return id;
+}
 
 //Registro del Jugador
 document
@@ -41,11 +60,11 @@ document.getElementById("formEquipo").addEventListener("submit", function (e) {
   let nombre = document.getElementById("nombreEquipo").value;
   let entrenador = document.getElementById("entrenador").value;
 
+  //Verificación del nombre del equipo
   let existe = equipos.some(
     (e) => e.nombre.toLowerCase() === nombre.toLowerCase(),
   );
 
-  //Verificación del nombre del equipo
   if (existe) {
     alert("El nombre del equipo ya está en uso");
     return;
@@ -55,3 +74,18 @@ document.getElementById("formEquipo").addEventListener("submit", function (e) {
 
   mostrarEquipos();
 });
+
+document
+  .getElementById("listaJugadores")
+  .addEventListener("click", function (e) {
+    if (e.target.classList.contains("btnMover")) {
+      let jugadorId = Number(e.target.getAttribute("data-id"));
+
+      let equipoId = Number(prompt("Ingresa ID del equipo"));
+
+      moverJugador(jugadorId, equipoId);
+
+      mostrarJugadores();
+      mostrarEquipos();
+    }
+  });
