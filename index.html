@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./src/style.css" />
+
+    <title>Gestor de Torneo de VideoJuegos</title>
+  </head>
+  <body>
+    <button id="btnNuevoJugador">Nuevo jugador</button>
+
+    <form id="registroJugador" style="display: none">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="text" id="nickname" placeholder="Nickname" required />
+      <input type="number" id="nivel" placeholder="Nivel" required />
+      <button type="submit">Registrar</button>
+    </form>
+
+    <div id="listaJugadores"></div>
+
+    <form id="formEquipo">
+      <input
+        type="text"
+        id="nombreEquipo"
+        placeholder="Nombre del equipo"
+        required
+      />
+      <input type="text" id="entrenador" placeholder="Entrenador" required />
+      <button type="submit">Crear equipo</button>
+    </form>
+
+    <div id="listaEquipos"></div>
+
+    <script src="./js/jugadores.js"></script>
+    <script src="./js/equipos.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/ui.js"></script>
+  </body>
+</html>
