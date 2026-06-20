@@ -1,6 +1,6 @@
 let jugadores = [];
 
-function crearJugador(nombre, nickname, nivel) {
+function crearJugador(nombre, nickname, nivel, equipo) {
   let nuevo = {
     id: generarIdUnico(),
     nombre: nombre,

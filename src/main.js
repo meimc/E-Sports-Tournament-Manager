@@ -1,15 +1,9 @@
-document.getElementById("btnIniciar").addEventListener("click", function () {
+function iniciarSistema() {
   document.getElementById("pantallaInicio").style.display = "none";
-
   document.getElementById("app").style.display = "block";
-});
+}
 
-let boton = document.getElementById("btnNuevoJugador");
-let form = document.getElementById("registroJugador");
-
-boton.addEventListener("click", function () {
-  form.style.display = "block";
-});
+document.getElementById("btnIniciar").addEventListener("click", iniciarSistema);
 
 //Generador de IDs
 function generarIdUnico() {
@@ -23,6 +17,35 @@ function generarIdUnico() {
 
   return id;
 }
+
+//Registro del Equipo
+let boton = document.getElementById("btnNuevoEquipo");
+let form = document.getElementById("registroEquipo");
+
+boton.addEventListener("click", function () {
+  document.getElementById("formJugadores").classList.remove("hidden");
+});
+
+document.getElementById("formEquipo").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let nombre = document.getElementById("nombreEquipo").value;
+  let entrenador = document.getElementById("entrenador").value;
+
+  //Verificación del nombre del equipo
+  let existe = equipos.some(
+    (e) => e.nombre.toLowerCase() === nombre.toLowerCase(),
+  );
+
+  if (existe) {
+    alert("El nombre del equipo ya está en uso");
+    return;
+  }
+
+  crearEquipo(nombre, entrenador);
+
+  mostrarEquipos();
+});
 
 //Registro del Jugador
 document
@@ -52,28 +75,6 @@ document
     form.reset(); // limpiar
     form.style.display = "none"; // ocultar otra vez
   });
-
-//Registro del Equipo
-document.getElementById("formEquipo").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  let nombre = document.getElementById("nombreEquipo").value;
-  let entrenador = document.getElementById("entrenador").value;
-
-  //Verificación del nombre del equipo
-  let existe = equipos.some(
-    (e) => e.nombre.toLowerCase() === nombre.toLowerCase(),
-  );
-
-  if (existe) {
-    alert("El nombre del equipo ya está en uso");
-    return;
-  }
-
-  crearEquipo(nombre, entrenador);
-
-  mostrarEquipos();
-});
 
 document
   .getElementById("listaJugadores")
