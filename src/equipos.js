@@ -1,3 +1,5 @@
+import { generarIdUnico } from "./jugadores";
+
 let equipos = [];
 
 function crearEquipo(nombre, entrenador, numeroDeJugadores) {
@@ -13,6 +15,10 @@ function crearEquipo(nombre, entrenador, numeroDeJugadores) {
 
   equipos.push(nuevo);
 }
+
+function editarEquipo() {}
+
+function eliminarEquipo() {}
 
 function moverJugador(jugadorId, equipoId) {
   let jugador = jugadores.find((j) => j.id === jugadorId);

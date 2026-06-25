@@ -1,1 +1,3 @@
 let partidas = [];
+
+function simularPartida() {}

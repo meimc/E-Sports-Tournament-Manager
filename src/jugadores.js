@@ -1,6 +1,20 @@
+//Generador de IDs
+export function generarIdUnico() {
+  let id;
+  do {
+    id = Math.floor(10000 + Math.random() * 90000);
+  } while (
+    jugadores.some((j) => j.id === id) ||
+    equipos.some((e) => e.id === id)
+  );
+
+  return id;
+}
+
+//Registro de Jugador
 let jugadores = [];
 
-function crearJugador(nombre, nickname, nivel, equipo) {
+function registrarJugador(nombre, nickname, nivel, equipo) {
   let nuevo = {
     id: generarIdUnico(),
     nombre: nombre,
@@ -14,3 +28,7 @@ function crearJugador(nombre, nickname, nivel, equipo) {
 
   jugadores.push(nuevo);
 }
+
+function editarJugador() {}
+
+function eliminarJugador() {}

@@ -46,3 +46,6 @@ function mostrarEquipos() {
     contenedor.appendChild(card);
   });
 }
+
+function mostrarHistorial() {}
+function mostrarCampeon() {}
